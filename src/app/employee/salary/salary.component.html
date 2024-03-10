@@ -1,0 +1,89 @@
+<app-sidenav></app-sidenav>
+<div class="main-container">
+    <div class="container">
+        <h2>{{ isEditMode ? 'Edit' : 'Add' }} Salary</h2>
+        <form class="input-form" [formGroup]="salaryForm">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="exampleName1">Name</mat-label>
+                    <mat-select formControlName="Name" [(ngModel)]="selectedEname" name="ename">
+                        @for (ename of enames; track ename) {
+                        <mat-option [value]="ename.value">{{ename.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <p> Selected Name: {{selectedEname}} </p>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="exampleDepartment1">Department</mat-label>
+                    <mat-select formControlName="Department" [(ngModel)]="selectedDept" name="dept">
+                        @for (dept of depts; track dept) {
+                        <mat-option [value]="dept.value">{{dept.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <p> Selected Department: {{selectedDept}} </p>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputSalary1" class="form-label">Salary </label>
+                <input type="text" class="form-control" formControlName="Salary" placeholder="Enter Salary">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAllowance1" class="form-label">Allowance Salary </label>
+                <input type="text" class="form-control" formControlName="Allowance"
+                    placeholder="Enter Allowance Salary">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTotal1" class="form-label">Total Salary </label>
+                <input type="text" class="form-control" formControlName="Total" placeholder="Total Salary">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-clear" (click)="clear()">Clear</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-submit" (click)="submit()">{{ isEditMode ? 'Update' :
+                    'Submit' }}</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+</div>
+
+<div class="main-container">
+    <h2>Employee Salary List </h2>
+    <div class="input-form">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Employee Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Allowance Salary</th>
+                    <th>Total Salary</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sal of salList; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ sal.Name }}</td>
+                    <td>{{ sal.Department }}</td>
+                    <td>{{ sal.Salary }}</td>
+                    <td>{{ sal.Allowance }}</td>
+                    <td>{{ sal.Total }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-edit"
+                                (click)="edit(i)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-del" (click)="delete(i)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { SidenavComponent } from '../sidenav/sidenav.component';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-attendance',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, SidenavComponent, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, SidenavComponent, MatButtonModule, DatePipe],
   templateUrl: './attendance.component.html',
   styleUrl: './attendance.component.less'
 })
@@ -21,7 +23,7 @@ export class AttendanceComponent {
   constructor(private formBuilder: FormBuilder) {
     this.attForm = this.formBuilder.group({
       Name: [''],
-      ContactNo: [''],
+      Phone: [''],
       AttendanceDate: [''],
       InTime: [''],
       OutTime: [''],
@@ -44,7 +46,7 @@ export class AttendanceComponent {
   edit(i: number) {
     this.attForm.patchValue({
       Name: this.attList[i].Name,
-      ContactNo: this.attList[i].ContactNo,
+      Phone: this.attList[i].Phone,
       AttendanceDate: this.attList[i].AttendanceDate,
       InTime: this.attList[i].InTime,
       OutTime: this.attList[i].OutTime,
@@ -57,7 +59,7 @@ export class AttendanceComponent {
   updateData() {
     if (this.selectedIndex !== -1) {
       this.attList[this.selectedIndex].Name = this.attForm.value.Name;
-      this.attList[this.selectedIndex].ContactNo = this.attForm.value.ContactNo;
+      this.attList[this.selectedIndex].Phone = this.attForm.value.Phone;
       this.attList[this.selectedIndex].AttendanceDate = this.attForm.value.AttendanceDate;
       this.attList[this.selectedIndex].InTime = this.attForm.value.InTime;
       this.attList[this.selectedIndex].OutTime = this.attForm.value.OutTime;

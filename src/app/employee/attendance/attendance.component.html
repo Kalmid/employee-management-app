@@ -4,15 +4,12 @@
         <h2>{{ isEditMode ? 'Edit' : 'Add' }} Attendance</h2>
         <form class="input-form" [formGroup]="attForm">
             <div class="form-group">
-                <label for="exampleInputName1" class="form-label">Employee Name </label>
-                <select class="form-control">
-                    <option *ngFor="let e of attList" [value]="e.employeeId">{{ e.Name }}</option>
-                </select>
-                <input type="text" class="form-control" formControlName="AttendanceDate">
+                <label for="exampleInputName1" class="form-label">Name </label>
+                <input type="text" class="form-control" formControlName="Name" placeholder="Enter Name">
             </div>
             <div class="form-group">
-                <label for="exampleInputPhone1" class="form-label">Contact No </label>
-                <input type="date" class="form-control" formControlName="AttendanceDate">
+                <label for="exampleInputPhone1" class="form-label">Phone </label>
+                <input type="text" class="form-control" formControlName="Phone" placeholder="Enter Phone Number">
             </div>
             <div class="form-group">
                 <label for="exampleInputDate1" class="form-label">Attendance Date </label>
@@ -20,17 +17,15 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputInTime1" class="form-label">InTime </label>
-                <input type="date" class="form-control" formControlName="InTime">
+                <input type="time" class="form-control" formControlName="InTime">
             </div>
             <div class="form-group">
                 <label for="exampleInputOutTime1" class="form-label">OutTime </label>
-                <input type="date" class="form-control" formControlName="OutTime">
+                <input type="time" class="form-control" formControlName="OutTime">
             </div>
             <div class="form-group">
                 <label for="exampleInputIsFullDay1" class="form-label">Is Full Day </label>
-                <input type="checkbox" class="form-control" name="pincode">
-            </div>
-            <div class="form-group">
+                <input type="text" class="form-control" formControlName="IsFullDay">
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-clear" (click)="clear()">Clear</button>
@@ -52,10 +47,10 @@
                 <tr>
                     <th>#</th>
                     <th>Employee Name</th>
-                    <th>Contact No</th>
+                    <th>Phone</th>
                     <th>Date</th>
                     <th>In-Time</th>
-                    <th>On-Time</th>
+                    <th>Out-Time</th>
                     <th>Is Full Day</th>
                     <th>Action</th>
                 </tr>
@@ -66,8 +61,8 @@
                     <td>{{ a.Name }}</td>
                     <td>{{ a.Phone }}</td>
                     <td>{{ a.AttendanceDate }}</td>
-                    <td>{{ a.InTime | date: 'hh-mm' }}</td>
-                    <td>{{ a.OnTime | date: 'hh-mm' }}</td>
+                    <td>{{ a.InTime }}</td>
+                    <td>{{ a.OutTime }}</td>
                     <td>{{ a.IsFullDay? 'Yes':'No' }}</td>
                     <td>
                         <div class="btn-group">

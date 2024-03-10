@@ -1,0 +1,92 @@
+<app-sidenav></app-sidenav>
+<div class="main-container">
+    <div class="container">
+        <h2>{{ isEditMode ? 'Edit' : 'Add' }} Employee</h2>
+        <form class="input-form" [formGroup]="empForm">
+            <div class="form-group">
+                <label for="exampleInputName1" class="form-label">Name </label>
+                <input type="text" class="form-control" formControlName="Name" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Email </label>
+                <input type="text" class="form-control" formControlName="Email" placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAddress1" class="form-label">Address </label>
+                <input type="text" class="form-control" formControlName="Address" placeholder="Enter Address">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhone1" class="form-label">Phone </label>
+                <input type="text" class="form-control" formControlName="Phone" placeholder="Enter Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDepartment1" class="form-label">Department </label>
+                <input type="text" class="form-control" formControlName="Department" placeholder="Enter Department">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDateofBirth1" class="form-label">Date Of Birth </label>
+                <input type="date" class="form-control" formControlName="Dob">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDateofJoined1" class="form-label">Date of Joinned </label>
+                <input type="date" class="form-control" formControlName="Doj">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDesignation1" class="form-label">Designation </label>
+                <input type="text" class="form-control" formControlName="Designation" placeholder="Enter Designation">
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-clear" (click)="clear()">Clear</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-submit" (click)="submit()">{{ isEditMode ? 'Update' :
+                    'Submit' }}</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+</div>
+
+<div class="main-container">
+    <h2>Employee List </h2>
+    <div class="input-form">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Department</th>
+                    <th>Date of Birth</th>
+                    <th>Date of Joinned</th>
+                    <th>Designation</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of empList; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ e.Name }}</td>
+                    <td>{{ e.Address }}</td>
+                    <td>{{ e.Email }}</td>
+                    <td>{{ e.Phone }}</td>
+                    <td>{{ e.Department }}</td>
+                    <td>{{ e.Dob }}</td>
+                    <td>{{ e.Doj }}</td>
+                    <td>{{ e.Designation }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-edit"
+                                (click)="edit(i)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" mat-raised-button color="warn" class="btn btn-del" (click)="delete(i)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

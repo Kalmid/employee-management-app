@@ -54,6 +54,7 @@ export class SalaryComponent {
   ];
 
 
+
   constructor(private formBuilder: FormBuilder) {
     this.salaryForm = this.formBuilder.group({
       Name: [''],
@@ -63,10 +64,12 @@ export class SalaryComponent {
       Total: ['']
     });
   }
+
   ngOnInit(): void {
     let data = localStorage.getItem('salList');
     this.salList = JSON.parse(data || '[]');
   }
+
   submit() {
     console.log(this.salaryForm.value);
     if (this.isEditMode) {
@@ -76,6 +79,7 @@ export class SalaryComponent {
     }
     this.clear();
   }
+
   edit(i: number) {
     this.salaryForm.patchValue({
       Name: this.salList[i].Name,
@@ -88,6 +92,7 @@ export class SalaryComponent {
     this.isEditMode = true;
     this.isSubmitMode = false;
   }
+
   updateData() {
     if (this.selectedIndex !== -1) {
       this.salList[this.selectedIndex].Name = this.salaryForm.value.Name;
@@ -99,19 +104,23 @@ export class SalaryComponent {
     }
     this.clearEditMode();
   }
+
   addNewData() {
     this.salList.push(this.salaryForm.value);
     localStorage.setItem('salList', JSON.stringify(this.salList));
   }
+
   clear() {
     this.salaryForm.reset();
     this.clearEditMode();
   }
+
   clearEditMode() {
     this.selectedIndex = -1;
     this.isEditMode = false;
     this.isSubmitMode = true;
   }
+  
   delete(i: number) {
     this.salList.splice(i, 1);
     localStorage.setItem('empList', JSON.stringify(this.salList));

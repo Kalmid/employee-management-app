@@ -25,14 +25,14 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputIsFullDay1" class="form-label">Is Full Day </label>
-                <input type="text" class="form-control" formControlName="IsFullDay">
+                <input type="text" class="form-control" formControlName="IsFullDay" placeholder="Enter Yes Or No">
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-clear" (click)="clear()">Clear</button>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-submit" (click)="submit()">{{ isEditMode ? 'Update' :
-                    'Submit' }}</button>
+              <button type="button" class="btn btn-submit" (click)="submit()">{{ isEditMode ? 'Update' :
+                'Submit' }}</button>
             </div>
         </form>
     </div>
@@ -63,11 +63,11 @@
                     <td>{{ a.AttendanceDate }}</td>
                     <td>{{ a.InTime }}</td>
                     <td>{{ a.OutTime }}</td>
-                    <td>{{ a.IsFullDay? 'Yes':'No' }}</td>
+                    <td>{{ a.IsFullDay }}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-edit"
-                                (click)="edit(i)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    (click)="edit(i)">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-del" (click)="delete(i)">Delete</button>
                         </div>
                     </td>

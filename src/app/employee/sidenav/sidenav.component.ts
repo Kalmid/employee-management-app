@@ -26,7 +26,7 @@ export class SidenavComponent {
     this.router.navigate(['/employee/emp']);
   }
   navigateToEmpSalaryPage(){
-    this.router.navigate(['/employee/sal']);
+    this.router.navigate(['/employee/salary']);
   }
   navigateToEmpAttendancePage(){
     this.router.navigate(['employee/attendance']);

@@ -21,17 +21,24 @@ interface Dept {
     standalone: true,
     templateUrl: './salary.component.html',
     styleUrl: './salary.component.less',
-    imports: [ReactiveFormsModule, 
-      CommonModule, 
+    imports: [ReactiveFormsModule,
+      CommonModule,
       SidenavComponent,
-      MatFormFieldModule, 
-      MatSelectModule, 
+      MatFormFieldModule,
+      MatSelectModule,
       MatInputModule,
       FormsModule
     ],
 })
 
 export class SalaryComponent {
+  Salary!: string;
+  Allowance!: string;
+  result!: number;
+
+  /*calculate(){
+    this.result = parseInt(this.Salary) + parseInt(this.Allowance);
+  }*/
 
   selectedEname!: string;
   selectedDept!: string;
@@ -46,11 +53,24 @@ export class SalaryComponent {
     {value: 'kalmi', viewValue: 'Kalmi'},
     {value: 'chethana', viewValue: 'Chethana'},
     {value: 'Marage', viewValue: 'Marage'},
+    {value: 'Mahesha Perera', viewValue: 'Mahesha Perera'},
+    {value: 'Marage', viewValue: 'Marage'},
+    {value: 'Sunila Disanayake', viewValue: 'Sunila Disanayake'},
+    {value: 'Pradipa Silva', viewValue: 'Pradipa Silva'},
+    {value: 'Maheshi', viewValue: 'Maheshi'},
+
   ];
   depts: Dept[] = [
     {value: 'it', viewValue: 'IT'},
     {value: 'hr', viewValue: 'HR'},
     {value: 'security', viewValue: 'Security'},
+    {value: 'sales', viewValue: 'Sales'},
+    {value: 'production', viewValue: 'Production'},
+    {value: 'cleaning', viewValue: 'Cleaning'},
+    {value: 'marketing', viewValue: 'Marketing'},
+    {value: 'administrator', viewValue: 'Administrator'},
+    {value: 'finance', viewValue: 'Finance'},
+    {value: 'management', viewValue: 'Management'},
   ];
 
 
@@ -120,7 +140,7 @@ export class SalaryComponent {
     this.isEditMode = false;
     this.isSubmitMode = true;
   }
-  
+
   delete(i: number) {
     this.salList.splice(i, 1);
     localStorage.setItem('empList', JSON.stringify(this.salList));

@@ -5,7 +5,7 @@ import { SidenavComponent } from './employee/sidenav/sidenav.component';
 import { DashboardComponent } from './employee/dashboard/dashboard.component';
 //import { NewemployeeComponent } from './employee/newemployee/newemployee.component';
 import { SalaryComponent } from './employee/salary/salary.component';
-import { EmplistComponent } from './employee/emplist/emplist.component';
+//import { EmplistComponent } from './employee/emplist/emplist.component';
 import { RegisterComponent } from './employee/register/register.component';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { AttendanceComponent } from './employee/attendance/attendance.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'emp', component: EmployeeFormComponent },
   { path: 'sidenav', component: SidenavComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'sal', component: SalaryComponent },
+  { path: 'salary', component: SalaryComponent },
   { path: 'attendance', component: AttendanceComponent }
 ];
 

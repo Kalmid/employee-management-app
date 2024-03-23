@@ -6,7 +6,7 @@ import { DashboardComponent } from './employee/dashboard/dashboard.component';
 //import { NewemployeeComponent } from './employee/newemployee/newemployee.component';
 import { SalaryComponent } from './employee/salary/salary.component';
 //import { EmplistComponent } from './employee/emplist/emplist.component';
-import { RegisterComponent } from './employee/register/register.component';
+//import { RegisterComponent } from './employee/register/register.component';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { AttendanceComponent } from './employee/attendance/attendance.component';
 
@@ -14,7 +14,7 @@ import { AttendanceComponent } from './employee/attendance/attendance.component'
 const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  // { path: 'register', component: RegisterComponent },
   { path: 'emp', component: EmployeeFormComponent },
   { path: 'sidenav', component: SidenavComponent },
   { path: 'dashboard', component: DashboardComponent },
